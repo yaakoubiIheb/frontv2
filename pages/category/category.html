@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>category</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js" integrity="sha512-juaCj8zi594KHQqb92foyp87mCSriYjw3BcTHaXsAn4pEB1YWh+z+XQScMxIxzsjfM4BeVFV3Ij113lIjWiC2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    
+
+
+    <div class="logoo">
+        <a href="./../../Index.html" class="logo" style="margin-left: 20px; color: black;text-decoration: none;font-weight: bold;">
+            <span>H</span> <span>E</span> <span>D</span> <span>I</span> <span>A</span> <span style="margin-left: 15px;"> </span> 
+            <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
+        </a>  
+    </div>
+    <div class="animate__animated animate__fadeIn animate__delay-1s" style="width: 100; padding-top: 25px;padding-bottom: 25px;text-align: center;" >
+        <h2 id="theme-name" class="subtitle"></h2>
+        <p id="theme-desc" class="desc"></p>
+       
+    </div>
+    <main id="projects" class="page-content animate__animated animate__fadeIn animate__delay-2s" >
+       
+    </main>
+
+
+
+<script>
+       $( document ).ready(function() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id')
+        
+        var bodyFormData = new FormData();
+        bodyFormData.append('id',id);
+
+        axios.post('http://127.0.0.1:8000/themeById/',
+            bodyFormData,
+            {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            })
+        .then(function (response) {
+            // handle success
+            console.log(response);
+            $('#theme-name').html(response.data.nom)
+            $('#theme-desc').html(response.data.description)
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+        var bodyFormData = new FormData();
+        bodyFormData.append('theme',id);
+        axios.post('http://127.0.0.1:8000/projet/',
+            bodyFormData,
+            {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            }
+           
+        
+        )
+        .then(function (response) {
+            // handle success
+            console.log(response);
+            response.data.projets.forEach(pro => {
+                $('#projects').html(
+                    $('#projects').html()+
+                ` 
+                <div class="card" style="background-image: url(http://`+pro.couverture+`);background-position: center;background-repeat: no-repeat">
+            <div class="content">
+                <h2 class="title">`+pro.nom+`</h2>
+                <p class="copy">`+pro.description+`</p><a href="./../View/View.html?project=`+pro.id+`"><button class="btn" >Voir</button></a>
+            </div>
+        </div>`)
+            });
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+       })
+   
+</script>
+
+
+    <script src="./function.js"></script>
+    
+</body>
+</html>

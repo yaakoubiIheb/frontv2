@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="http://fonts.cdnfonts.com/css/hartone-softed" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/elmono-2" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/vag-primer" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/dunkin-lyons" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="https://kit.fontawesome.com/a6269221a2.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+   
+    <div class="logoo ">
+        <a href="./../../Index.html"  class="logo" style="margin-left: 20px;color: black;">
+            <span>H</span> <span>E</span> <span>D</span> <span>I</span> <span>A</span> <span style="margin-left: 15px;"> </span> 
+            <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
+        </a>  
+    </div>
+        <h2 style="font-family: 'COCOGOOSE', sans-serif;text-transform: uppercase;" class="section-heading h3 pt-4">About Us</h2>
+        <!--Section description-->
+        <p id="description" class="section-description animate__animated animate__fadeIn animate__delay-1s" style="font-family: 'Elmono', sans-serif;">
+          
+        </p>
+      
+      
+       
+        <!--Grid row-->
+      
+            <div id="team" class="row text-center personnes animate__animated animate__fadeIn animate__delay-2s" >
+    
+                <!--Grid column-->
+                
+                
+                <!--Grid column-->
+        
+                
+            </div>
+          
+            <p class="section-description animate__animated animate__fadeIn animate__delay-2s">
+            
+                <a id="facebook" href="https://facebook.com" class="icon-button facebook"><i class="fa-brands fa-facebook"></i><span></span></a>
+                <a id="instagram" href="https://plus.google.com" class="icon-button instagram"><i class="fa-brands fa-instagram"></i><span></span></a>
+                <a id="linkedin" href="https://www.linkedin.com/" class="icon-button facebook"><i class="fa-brands fa-linkedin"></i><span></span></a>
+                
+            </p>
+            <div class="inform animate__animated animate__fadeIn animate__delay-2s">
+                <p  class="info"><i class="fa-solid fa-map-location fa-xl" style="margin-right: 10px;" ></i><span id="adresse" style="font-size: 10px;font-family: 'Dunkin Lyons', sans-serif;"></span></p>
+                <p  class="info"><i class="fa-solid fa-at fa-xl" style="margin-right: 10px;"></i><span id="email" style="font-size: 10px;font-family: 'Dunkin Lyons', sans-serif;"></span></p>
+                <p  class="info"><i class="fa-solid fa-phone fa-xl" style="margin-right: 10px;"></i><span id="phone" style="font-size: 10px;font-family: 'Dunkin Lyons', sans-serif;"></span></p> 
+            </div>
+        </div>
+       
+        <!--Grid row-->
+      
+    </section> 
+    <script>
+        $( document ).ready(function() {
+            axios.get('http://127.0.0.1:8000/personne/')
+        .then(function (response) {
+            // handle success
+            // console.log(response.data);
+            response.data.forEach(per => {
+                $('#team').html($('#team').html()+`
+                <div class="col-lg-5 col-md-6 mb-r">
+    
+    <div class="avatar mb-3">
+        <img src="http://127.0.0.1:8000`+per.image+`" class="rounded-circle z-depth-1" alt="First sample avatar image">
+    </div>
+    <h4 style="font-family: 'VAG Primer', sans-serif; text-transform: capitalize;">`+per.nom+` `+per.prenom+`</h4>
+  
+    <p style="font-family: 'Elmono', sans-serif;">`+per.description+`</p>
+
+    
+
+</div>
+                `)
+            });
+            
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+
+        axios.get('http://127.0.0.1:8000/information/')
+        .then(function (response) {
+            // handle success
+            console.log(response.data);
+           $('#adresse').html(response.data[0].adresse)
+           $('#phone').html(response.data[0].telephone)
+           $('#email').html(response.data[0].email)
+           $('#description').html(response.data[0].description)
+           $('#facebook').attr("href", response.data[0].facebook)
+           $('#instagram').attr("href", response.data[0].instagram)
+           $('#linkedin').attr("href", response.data[0].linkedIn)
+           
+            
+            
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+        })
+ </script>
+</body>
+</html>

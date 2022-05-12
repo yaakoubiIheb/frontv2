@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://kit.fontawesome.com/a6269221a2.js" crossorigin="anonymous"></script>
+
+
+    <title>View</title>
+</head>
+<body>
+    <div class="logoo ">
+        <a href="./../../Index.html" class="logo" style="margin-left: 20px; color: black;text-decoration: none;">
+            <span>H</span> <span>E</span> <span>D</span> <span>I</span> <span>A</span> <span style="margin-left: 15px;"> </span> 
+            <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
+        </a>  
+    </div>
+    <div class="animate__animated animate__fadeIn animate__delay-1s" style=" padding-top: 25px;padding-bottom: 25px;text-align: center;" >
+        <h2 id="theme-name" class="subtitle"></h2>
+        <p id="theme-desc" class="desc"></p>
+       
+    </div>
+    <div  class="container-fluid animate__animated animate__fadeIn animate__delay-2s">
+        <div id="view">
+
+        </div>
+        <div id="containerr" class="row">
+          <div class="column" id="col-1">
+          
+          </div>
+          <div class="column" id="col-2">
+            
+          
+        </div>
+        <div class="column" id="col-3">
+          
+            
+        </div>
+        </div>
+      </div>
+    
+      
+
+
+    <script>
+
+$( document ).ready(function() {
+
+
+    function pushone(URL,id) {
+        $('#col-1').html($('#col-1').html()+`
+        <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
+    }
+    function pushtwo(URL,id) {
+        $('#col-2').html($('#col-2').html()+`
+        <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
+    }
+    function pushthree(URL,id) {
+        $('#col-3').html($('#col-3').html()+`
+        <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
+    }
+    const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('project')
+        var col = 1
+
+        // axios.get('http://127.0.0.1:8000/projetByName/'+id)
+        // .then(function (response) {
+        //     // handle success
+        //     // console.log(response.data.projet[0].description);
+        //   
+        // })
+        // .catch(function (error) {
+        //     // handle error
+        //     console.log(error);
+        // })
+        // .then(function () {
+        //     // always executed
+        // });
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('id',id);
+        axios.post('http://127.0.0.1:8000/projetById/',
+            bodyFormData,
+            {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                }
+            }
+           
+        
+        ).then(function (response) {
+            // handle success
+            console.log(response.data.images);
+            $('#theme-desc').html(response.data.projet[0].description)
+            $('#theme-name').html(response.data.projet[0].nom)
+            response.data.images.forEach(img => {
+                if(col == 1){
+                    pushone(img.image , img.id)
+                    col=2
+                }else if (col == 2){
+                    pushtwo(img.image , img.id)
+                    col=3
+                }else{
+                    pushthree(img.image , img.id)
+                    col=1
+                }
+            });
+            
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .then(function () {
+            // always executed
+        });
+
+   
+        })
+
+
+        function gofull(id){
+            console.log(id)
+            $('#containerr').addClass('blur')
+            console.log($('#'+id).clone())
+
+            
+        }
+      
+
+    </script>
+</body>
+</html>

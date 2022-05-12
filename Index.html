@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hedia Photography</title>
+   
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./layout.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div class="s-cursor">
+      <span class="c-icon"></span> <span class="c-label"></span>
+      <span class="c-pointer"></span>
+    </div>
+    <div class="s-loader">
+      <div class="c-loading" data-category="">
+        <div class="c-text">
+          <div class="c-align">
+            <div class="c-head">Hedia </div>
+            <div class="c-sub">Photography</div>
+          </div>
+        </div>
+        <div class="c-shape"></div>
+        <div class="c-cover"><div class="c-container"></div></div>
+      </div>
+    </div>
+    <header class="s-header" style="margin-right: 500px;">
+      <div class="c-logo" >
+        <h1 >
+          <span>H</span> <span>E</span> <span>D</span> <span>I</span> <span>A</span> <span> </span> <span> </span> 
+          <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
+        </h1>
+      </div>
+     
+    </header>
+    <!-- <nav class="s-nav">
+     
+      <div class="c-columns">
+        <div class="c-col">
+          <div class="c-categories">
+            <ul>
+              <li>
+                <a
+                  data-url="campaigns"
+                  href="https://www.ottografie.nl/campaigns/fifth-house/"
+                  >Campaigns</a
+                >
+              </li>
+              <li>
+                <a
+                  data-url="celebrities"
+                  href="https://www.ottografie.nl/celebrities/romy-monteiro/"
+                  >Celebrities</a
+                >
+              </li>
+              <li>
+                <a
+                  data-url="beauty"
+                  href="https://www.ottografie.nl/beauty/flowers-for-zoe/"
+                  >Beauty</a
+                >
+              </li>
+              <li>
+                <a data-url="men" href="https://www.ottografie.nl/men/akwasi/"
+                  >Men</a
+                >
+              </li>
+              <li>
+                <a
+                  data-url="women"
+                  href="https://www.ottografie.nl/women/winter-wish/"
+                  >Women</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="c-overview">
+            <ul>
+              <li>
+                <a
+                  data-url="overview"
+                  href="https://www.ottografie.nl/overview/"
+                  >Quick overview</a
+                >
+              </li>
+              <li>
+                <a data-url="video" href="https://www.ottografie.nl/video/"
+                  >Video</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="c-col">
+          <div class="c-main">
+            <ul>
+              <li>
+                <a data-url="home" href="https://www.ottografie.nl">Home</a>
+              </li>
+              <li>
+                <a data-url="about" href="https://www.ottografie.nl/about/"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="c-social">
+            <ul>
+              <li>
+                <a
+                  class="no-barba"
+                  target="_blank"
+                  href="https://www.facebook.com/Ottografie/"
+                ></a>
+              </li>
+              <li>
+                <a
+                  class="no-barba"
+                  target="_blank"
+                  href="https://www.instagram.com/ottovandentoorn/"
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="c-contact">
+            <ul>
+              <li>Phone</li>
+              <li>+31 (0)6 5363 5255</li>
+            </ul>
+            <ul>
+              <li>Email</li>
+              <li>
+                <a href="mailto:otto@ottografie.nl">otto@ottografie.nl</a>
+              </li>
+            </ul>
+            <ul>
+              <li>Studio</li>
+              <li>Prinses Margrietlaan 86</li>
+              <li>1421XJ Uithoorn</li>
+              <li>The Netherlands</li>
+            </ul>
+            <ul>
+              <li>Address</li>
+              <li>Bertram 50</li>
+              <li>1422SC Uithoorn</li>
+              <li>The Netherlands</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav> -->
+    <div class="s-fullscreen">
+      <div class="c-container"></div>
+      <div class="c-background"></div>
+    </div>
+    <div class="s-placeholder"><div class="s-hero"></div></div>
+    <main class="s-main" id="s-main">
+      <div class="s-page" data-namespace="page-work">
+        <div class="p-work js-scroller">
+          <div class="s-work">
+            <div class="c-headings">
+              <div class="c-heading-normal">
+                <div class="c-normal-current"><h2>&nbsp;</h2></div>
+                <div class="c-normal-next"><h2>&nbsp;</h2></div>
+              </div>
+              <div class="c-heading-diap">
+                <div class="c-diap-current"><h2>&nbsp;</h2></div>
+                <div class="c-diap-next"><h2>&nbsp;</h2></div>
+              </div>
+            </div>
+            <div class="c-cases">
+              <div class="c-cases-container">
+                <div class="c-cases-normal">
+                  <div class="c-cases-mask" id="cover">
+                
+                    
+                   
+                  </div>
+                </div>
+                <div class="c-cases-diap">
+                  <div class="c-image"><img src="#" alt="" /></div>
+                </div>
+              </div>
+            </div>
+            <nav class="c-nav">
+              <ul id="menu">
+                
+              </ul>
+              <ul>
+                <li class="c-page" data-page="Video">
+                  <a href="./pages/aboutus/About.html">
+                    <span class="c-button">ABOUT US</span>
+                  </a>
+                </li>
+               
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <div class="s-build">
+     
+    </div>
+    <script>
+      $( document ).ready(function() {
+        console.log( "ready!" );
+        axios.get('http://127.0.0.1:8000/theme/')
+        .then(function (response) {
+          // handle success
+          console.log(response)
+          response.data.themes.forEach(theme => {
+            $('#menu').html($('#menu').html()+`<li class="c-category" data-category="a">
+                  <a href='./pages/category/category.html?id=`+theme.id+`'>
+                    <span class="c-button">`+theme.nom+`</span>
+                    <span class="c-filler">
+                      <span class="c-filled"></span>
+                    </span>
+                  </a>
+                </li>`) 
+
+            $('#cover').html($('#cover').html()+` <div
+                      class="c-case"
+                      data-category="`+theme.nom+`"
+                      data-color="#f5deb4"
+                    >
+                      <div class="c-heading">
+                        <div class="c-title">View Category</div>
+                        <div class="c-heading-row" >
+                          <h2>
+                            `+theme.nom+`
+                          </h2>
+                        </div>
+                      </div>
+                      <a class="c-image" href='./pages/category/category.html?id=`+theme.id+`'>
+                        <img
+                          alt=""
+                          src="http://`+theme.couverture+`"
+                        />
+                      </a>
+                      <div class="c-permalink">
+                        <a
+                          href="https://www.ottografie.nl/campaigns/fifth-house/"
+                        ></a>
+                      </div>
+                    </div>`)
+
+               
+          });
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        }) .then(function () {
+          sWork()
+  });
+
+      });
+    </script>
+      <script src="./vendors.min.js"></script>
+      <script src="./scripts.min.js"></script>
+      <!-- <script src="./router.min.js"></script> -->
+  </body>
+</html>
+

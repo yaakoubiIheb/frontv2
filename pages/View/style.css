@@ -1,0 +1,101 @@
+@import url('http://fonts.cdnfonts.com/css/cocogoose');
+@import url('http://fonts.cdnfonts.com/css/jelly-anika');
+
+html, body {
+    height: 100%;
+}
+
+.logoo {
+	width: 100;
+	padding-top: 60px;
+	padding-bottom: 25px;
+	text-align: left;
+}
+
+.logo span{
+    font-size: 1rem;
+    font-family:'COCOGOOSE', sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 33.3%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s linear;
+  }
+
+  .content {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 5px;
+    transition: 0.3s linear;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+    
+  }
+
+  .subtitle {
+    text-transform: uppercase;
+    font-family:'COCOGOOSE', sans-serif;
+    font-size: 1.5rem;
+}
+.desc {
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Jelly Anika', sans-serif;
+    font-style: italic;
+    font-size: 20px
+
+}
+
+.fullscreen {
+  z-index: 9999;
+  position: fixed;
+  object-fit: contain;
+  width:90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  
+}
+.blur {
+  filter: blur(8px);
+}
+*
+.icon {
+  position: relative;
+  left: 50%;
+  top: 50%
+}
+  
