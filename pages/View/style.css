@@ -98,4 +98,22 @@ html, body {
   left: 50%;
   top: 50%
 }
+.View {
+  position: absolute;
+  z-index: 100;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s all;
+  --animate-duration: .5s;
+  }
   

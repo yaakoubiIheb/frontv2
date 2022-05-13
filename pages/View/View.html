@@ -23,29 +23,33 @@
             <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
         </a>  
     </div>
-    <div class="animate__animated animate__fadeIn animate__delay-1s" style=" padding-top: 25px;padding-bottom: 25px;text-align: center;" >
-        <h2 id="theme-name" class="subtitle"></h2>
-        <p id="theme-desc" class="desc"></p>
-       
-    </div>
-    <div  class="container-fluid animate__animated animate__fadeIn animate__delay-2s">
-        <div id="view">
+    <div id="view" class="View">
 
+    </div>
+    <div  id="containerr">
+        <div class="animate__animated animate__fadeIn animate__delay-1s" style=" padding-top: 25px;padding-bottom: 25px;text-align: center;" >
+            <h2 id="theme-name" class="subtitle"></h2>
+            <p id="theme-desc" class="desc"></p>
+           
         </div>
-        <div id="containerr" class="row">
-          <div class="column" id="col-1">
+        <div  class="container-fluid animate__animated animate__fadeIn animate__delay-2s">
           
+            <div  class="row">
+              <div class="column" id="col-1">
+              
+              </div>
+              <div class="column" id="col-2">
+                
+              
+            </div>
+            <div class="column" id="col-3">
+              
+                
+            </div>
+            </div>
           </div>
-          <div class="column" id="col-2">
-            
-          
-        </div>
-        <div class="column" id="col-3">
-          
-            
-        </div>
-        </div>
-      </div>
+    </div>
+    
     
       
 
@@ -71,6 +75,7 @@ $( document ).ready(function() {
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get('project')
         var col = 1
+        
 
         // axios.get('http://127.0.0.1:8000/projetByName/'+id)
         // .then(function (response) {
@@ -127,12 +132,23 @@ $( document ).ready(function() {
    
         })
 
-
+        var viewexist = 0
         function gofull(id){
-            console.log(id)
-            $('#containerr').addClass('blur')
-            console.log($('#'+id).clone())
-
+            if(viewexist == 0){
+                $('#containerr').addClass('blur')
+                $('#'+id).clone().addClass('propview').appendTo("#view")
+                $('.propview').addClass('animate__animated animate__fadeIn')
+                $('.propview').addClass('centered')
+                viewexist = 1
+            }else{
+                $('.propview').removeClass('animate__fadeIn')
+                $('#containerr').removeClass('blur')
+                $('#view').html("")
+              
+                
+                viewexist = 0
+            }
+            
             
         }
       
