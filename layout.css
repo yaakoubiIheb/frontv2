@@ -2638,7 +2638,7 @@ blockquote {
 }
 .s-work .c-headings h2 {
   height: 190px;
-  font-size: 12vw;
+  font-size: 10vw;
   line-height: 8vw;
   font-weight: 400;
   overflow: hidden;
@@ -2649,7 +2649,7 @@ blockquote {
 @media only screen and (min-width: 1600px) {
   .s-work .c-headings h2 {
     height: 200px;
-    font-size: 17rem;
+    font-size: 10rem;
   }
 }
 .s-work .c-headings h2 div {
@@ -2664,7 +2664,7 @@ blockquote {
   height: 12vw;
   overflow: hidden;
   position: absolute;
-  mix-blend-mode: revert;
+  mix-blend-mode: exclusion;
   
   -webkit-transform: translateY(-35%);
   -moz-transform: translateY(-35%);
@@ -2745,7 +2745,7 @@ blockquote {
 .s-work .c-cases .c-image {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  
 }
 .s-work .c-cases .c-image img {
   width: 100%;

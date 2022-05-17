@@ -20,7 +20,8 @@
     <div class="logoo ">
         <a href="./../../Index.html" class="logo" style="margin-left: 20px; color: black;text-decoration: none;">
             <span>H</span> <span>E</span> <span>D</span> <span>I</span> <span>A</span> <span style="margin-left: 15px;"> </span> 
-            <span>P</span> <span>H</span> <span>O</span> <span>T</span> <span>O</span> <span>G</span> <span>R</span> <span>A</span> <span>P</span> <span>H</span> <span>Y</span>
+            <span>B</span> <span>E</span> <span>N</span> <span style="margin-left: 15px;"> </span> 
+            <span>A</span> <span>R</span> <span>A</span><span>R</span> <span>I</span> <span style="margin-left: 15px;"> </span> 
         </a>  
     </div>
     <div id="view" class="View">
@@ -43,7 +44,7 @@
               
             </div>
             <div class="column" id="col-3">
-              
+             
                 
             </div>
             </div>
@@ -58,7 +59,7 @@
 
 $( document ).ready(function() {
 
-
+  
     function pushone(URL,id) {
         $('#col-1').html($('#col-1').html()+`
         <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
@@ -70,6 +71,19 @@ $( document ).ready(function() {
     function pushthree(URL,id) {
         $('#col-3').html($('#col-3').html()+`
         <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
+    }
+
+    function pushvidone(String) {
+        $('#col-1').html($('#col-1').html()+`
+        `+String)
+    }
+    function pushvidtow(String) {
+        $('#col-2').html($('#col-2').html()+`
+        `+String)
+    }
+    function pushvidthere(String) {
+        $('#col-3').html($('#col-3').html()+`
+        `+String)
     }
     const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -104,7 +118,7 @@ $( document ).ready(function() {
         
         ).then(function (response) {
             // handle success
-            console.log(response.data.images);
+            console.log(response.data);
             $('#theme-desc').html(response.data.projet[0].description)
             $('#theme-name').html(response.data.projet[0].nom)
             response.data.images.forEach(img => {
@@ -119,6 +133,21 @@ $( document ).ready(function() {
                     col=1
                 }
             });
+
+            response.data.videos.forEach(vid => {
+                if(col == 1){
+                    pushvidone(vid.url)
+                    col=2
+                }else if (col == 2){
+                    pushvidtow(vid.url)
+                    col=3
+                }else{
+                    pushvidthere(vid.url)
+                    col=1
+                }
+            });
+                
+            });
             
         })
         .catch(function (error) {
@@ -130,8 +159,7 @@ $( document ).ready(function() {
         });
 
    
-        })
-
+        
         var viewexist = 0
         function gofull(id){
             if(viewexist == 0){
@@ -144,15 +172,12 @@ $( document ).ready(function() {
                 $('.propview').removeClass('animate__fadeIn')
                 $('#containerr').removeClass('blur')
                 $('#view').html("")
-              
-                
                 viewexist = 0
             }
             
             
         }
-      
-
+    
     </script>
 </body>
 </html>
