@@ -121,8 +121,10 @@ html, body {
   .video {
     margin-top: 8px;
     vertical-align: middle;
-    width: 100%;
+    width: 65%;
+    height: 500px;
     border-radius: 5px;
     transition: 0.3s linear;
+    
   }
   

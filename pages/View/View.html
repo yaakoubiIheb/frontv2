@@ -48,6 +48,10 @@
                 
             </div>
             </div>
+
+            <div  class="row justify-content-center" id="videos">
+
+            </div>
           </div>
     </div>
     
@@ -73,18 +77,11 @@ $( document ).ready(function() {
         <img id="`+id+`" src="http://`+URL+`" onclick="gofull(`+id+`)"/> `)
     }
 
-    function pushvidone(String) {
-        $('#col-1').html($('#col-1').html()+`
+    function pushvid(String) {
+        $('#videos').html($('#videos').html()+`
         `+String)
     }
-    function pushvidtow(String) {
-        $('#col-2').html($('#col-2').html()+`
-        `+String)
-    }
-    function pushvidthere(String) {
-        $('#col-3').html($('#col-3').html()+`
-        `+String)
-    }
+   
     const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get('project')
@@ -135,16 +132,9 @@ $( document ).ready(function() {
             });
 
             response.data.videos.forEach(vid => {
-                if(col == 1){
-                    pushvidone(vid.url)
-                    col=2
-                }else if (col == 2){
-                    pushvidtow(vid.url)
-                    col=3
-                }else{
-                    pushvidthere(vid.url)
-                    col=1
-                }
+               
+                    pushvid(vid.url)
+                  
             });
 
 
