@@ -2662,7 +2662,6 @@ blockquote {
 .s-work .c-headings .c-heading-normal {
   top: 50%;
   height: 12vw;
-  overflow: hidden;
   position: absolute;
   mix-blend-mode: exclusion;
   
@@ -3407,7 +3406,6 @@ blockquote {
 footer {
   display: flex;
   height: 30px;
-
   justify-content: space-between;
   position: absolute;
   bottom: 10px;
