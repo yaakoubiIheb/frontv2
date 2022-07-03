@@ -219,11 +219,9 @@
     
     <script>
       $( document ).ready(function() {
-        axios.get('http://127.0.0.1:8000/theme/')
-        .then(function (response) {
-          // handle success
-          console.log(response)
-          response.data.themes.forEach(theme => {
+        
+          themes=[{"id": 1, "nom": "test1", "description": "'test", "couverture": "test1.jpg"}, {"id": 2, "nom": "test2", "description": "test ", "couverture": "test2.jpg"}, {"id": 3, "nom": "test3", "description": "description", "couverture": "test3.jpg"}]
+          themes.forEach(theme => {
             $('#menu').html($('#menu').html()+`<li class="c-category" data-category="a">
                   <a href='./pages/category/category.html?id=`+theme.id+`'>
                     <span class="c-button">`+theme.nom+`</span>
@@ -249,7 +247,7 @@
                       <a class="c-image" href='./pages/category/category.html?id=`+theme.id+`'>
                         <img
                           alt=""
-                          src="http://`+theme.couverture+`"
+                          src="./themes/`+theme.couverture+`"
                         />
                       </a>
                       <div class="c-permalink">
@@ -260,17 +258,17 @@
                     </div>`)
 
                
-          });
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        }) .then(function () {
-          sWork()
+                  });
+       
+                  sWork()
   });
 
 
-      });
+     
+   
+
+
+    
     </script>
     
       <script src="./vendors.min.js"></script>

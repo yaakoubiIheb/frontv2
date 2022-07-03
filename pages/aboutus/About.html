@@ -69,59 +69,44 @@
     </section> 
     <script>
         $( document ).ready(function() {
-            axios.get('http://127.0.0.1:8000/personne/')
-        .then(function (response) {
-            // handle success
-            // console.log(response.data);
-            response.data.forEach(per => {
+            
                 $('#team').html($('#team').html()+`
                 <div class="col-lg-5 col-md-6 mb-r">
     
     <div class="avatar mb-3">
-        <img src="http://127.0.0.1:8000`+per.image+`" class="rounded-circle z-depth-1" alt="First sample avatar image">
+        <img src="./photo/hedia.jpg" class="rounded-circle z-depth-1" alt="First sample avatar image">
     </div>
-    <h4 style="font-family: 'VAG Primer', sans-serif; text-transform: capitalize;">`+per.nom+` `+per.prenom+`</h4>
+    <h4 style="font-family: 'VAG Primer', sans-serif; text-transform: capitalize;">"Hedia Ben Arari"</h4>
   
-    <p style="font-family: 'Elmono', sans-serif;">`+per.description+`</p>
+    <p style="font-family: 'Elmono', sans-serif;">"I am an artist by training, I teached photography at an art school and then I started my own image agency"</p>
 
     
 
 </div>
                 `)
+
+
+
+            $('#adresse').html("Rue Abou Hanifa, Tunis, Tunisia")
+           $('#phone').html("+216 23 03 73 00")
+           $('#email').html("benararihedia@gmail.com")
+           //$('#description').html(response.data[0].description)
+           $('#facebook').attr("href", "https://www.facebook.com/hediabbbarari")
+           $('#instagram').attr("href", "https://www.instagram.com/hediabenarari/")
+           $('#linkedin').attr("href", "https://www.linkedin.com/in/hedia-ben-arari-b2bb0649/")
+
+
             });
             
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
+        
+    
 
-        axios.get('http://127.0.0.1:8000/information/')
-        .then(function (response) {
-            // handle success
-            console.log(response.data);
-           $('#adresse').html(response.data[0].adresse)
-           $('#phone').html(response.data[0].telephone)
-           $('#email').html(response.data[0].email)
-           $('#description').html(response.data[0].description)
-           $('#facebook').attr("href", response.data[0].facebook)
-           $('#instagram').attr("href", response.data[0].instagram)
-           $('#linkedin').attr("href", response.data[0].linkedIn)
+       
+           
            
             
             
-        })
-        .catch(function (error) {
-            // handle error
-            console.log(error);
-        })
-        .then(function () {
-            // always executed
-        });
-        })
+
  </script>
 
 
